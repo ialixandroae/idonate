@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>I Donate</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
+  <!-- Material Kit CSS -->
+  <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+
+  <script>
+
+    var dojoConfig = { isDebug: true };
+
+  </script>
+  
+</head>
+
+<body class="dark-edition">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="black" data-image="./assets/img/sidebar-2.jpg">
+      <!--
+      Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+      Tip 2: you can also add an image using data-image tag
+  -->
+      <div class="logo">
+        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+          I Donate
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item active  ">
+            <a class="nav-link" href="javascript:void(0)">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <!-- your sidebar here -->
+          <li class="nav-item ">
+            <a class="nav-link" href="./tables.html">
+              <i class="material-icons">content_paste</i>
+              <p>Table List</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+          
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+          <!-- your content here -->
+            <!-- Column Chart -->
+            <div class="col-xl-7 col-lg-12">
+              <div class="card card-chart">
+                <div class="card-header card-header-success">
+                  <div class="ct-chart" id="columnChart"></div>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">Total donation locations by types</h4>
+                  <p class="card-category"></p>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">access_time</i> <span id="columnChartDataUpdate"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Latest Data -->
+            <div class="col-xl-5 col-lg-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Latest 5 locations added</h4>
+                  <p class="card-category">Latest locations with their name and town</p>
+                </div>
+                <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-warning">
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Town</th>
+                    </thead>
+                    <tbody id="latestLocationTableBody"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            </div>
+            
+            <!-- Cards for types -->
+            <div class="row">
+              <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                  <div class="card-header card-header-warning card-header-icon">
+                    <div class="card-icon">
+                      <i class="fas fa-tshirt"></i>
+                    </div>
+                    <p class="card-category">Locations to donate clothes</p>
+                    <h3 class="card-title" id="cardClothesValue">...</h3>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                  <div class="card-header card-header-success card-header-icon">
+                    <div class="card-icon">
+                      <i class="fas fa-car"></i>
+                    </div>
+                    <p class="card-category">Locations to donate toys</p>
+                    <h3 class="card-title" id="cardToysValue">...</h3>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                  <div class="card-header card-header-danger card-header-icon">
+                    <div class="card-icon">
+                      <i class="fas fa-book"></i>
+                    </div>
+                    <p class="card-category">Locations to donate books</p>
+                    <h3 class="card-title" id="cardBooksValue">...</h3>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                  <div class="card-header card-header-info card-header-icon">
+                    <div class="card-icon">
+                      <i class="fas fa-home"></i>
+                    </div>
+                    <p class="card-category">Locations to donate furniture</p>
+                    <h3 class="card-title" id="cardFurnitureValue">...</h3>
+                  </div>
+                </div>
+              </div>
+          </div> 
+
+          <div class="row">
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                  <div class="card-icon">
+                    <i class="fas fa-utensils"></i>
+                  </div>
+                  <p class="card-category">Locations to donate food</p>
+                  <h3 class="card-title" id="cardFoodValue">...</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-alert card-header-icon">
+                  <div class="card-icon">
+                    <i class="fas fa-mobile"></i>
+                  </div>
+                  <p class="card-category">Locations to donate phones</p>
+                  <h3 class="card-title" id="cardPhonesValue">...</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-warning card-header-icon">
+                  <div class="card-icon">
+                    <i class="fas fa-shopping-basket"></i>
+                  </div>
+                  <p class="card-category">Locations to donate other things</p>
+                  <h3 class="card-title" id="cardOtherValue">...</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      </div>
+
+      <footer class="footer">
+        <div class="container-fluid">
+          <nav class="float-left">
+            <ul>
+              <li>
+                <a href="https://twitter.com/ialixandroae">
+                  Ionut Alixandroae
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright float-right">
+            &copy;
+            <script>
+              document.write(new Date().getFullYear())
+            </script>, template by
+            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+          </div>
+          <!-- your footer here -->
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="./assets/js/core/jquery.min.js"></script>
+  <script src="./assets/js/core/popper.min.js"></script>
+  <!-- <script src="./assets/js/core/bootstrap-material-design.min.js"></script> -->
+  <script src="https://unpkg.com/default-passive-events"></script>
+  <!-- <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script> -->
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Chartist JS -->
+  <script src="./assets/js/plugins/chartist.min.js"></script>
+ 
+  
+  <script type='text/javascript' rel=preload src='https://js.arcgis.com/4.9/'></script>
+  <script>
+      require(['../dist/dashboard.bundle.js'], function (main) { });
+  </script>
+</body>
+
+</html>

@@ -7,7 +7,7 @@ It provides a map to search for locations by type and a form to add a new locati
 
 ## Demo & preview
 
-
+![idonate small](https://user-images.githubusercontent.com/18401030/47392421-410e0600-d725-11e8-8054-72a0a86e32c4.gif)
 
 ##  Modules
 

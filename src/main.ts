@@ -76,7 +76,9 @@ function _sqlExpression(valuesArray: string[], initialSQLString: string): string
 function _getMapLocation(mapView){
     let address = _cityFromCoordinates(mapView.center);
     let mapLocationDiv: HTMLElement = document.getElementById('mapCity');
+    let mapLocationMobileDiv: HTMLElement = document.getElementById('mapCityMobile');
     address.then(address => mapLocationDiv.innerHTML = address['attributes']['City'] + ", " + address['attributes']['CountryCode']);
+    address.then(address => mapLocationMobileDiv.innerHTML = address['attributes']['City'] + ", " + address['attributes']['CountryCode']);
 };
 // Async function that gets the name of the city using the coordinates from the center of the map
 async function _cityFromCoordinates(location: object): Promise<object> {

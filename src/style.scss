@@ -10,6 +10,22 @@ body,
 #controls {
     width: 300px;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.85);
 }
 
+.top-nav {
+    background-image: linear-gradient(to right, #76209b, #3a6f70);
+}
+
+.btn {
+    background-color: #3a6f70;
+}
+
+.btn:hover {
+    background-color: #2b5152;
+}
+
+.top-nav-title,
+.top-nav-link {
+    color: #fefefe;
+}
